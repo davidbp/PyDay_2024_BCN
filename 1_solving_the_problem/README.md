@@ -37,11 +37,27 @@ Depending on the type of data we will have different options for algorithms and 
 
 From the different metrics that we can use, we are going to use the **accuracy** for being very appropiate for this balanced problem. We can derive its formula from the **confusion matrix**:
 
-| <ul><li>True positive (**TP**)</li></ul> | <ul><li>False Negative (**FN**)</li><li>aka. **Type II error**</li></ul> |
-| <ul><li>False positive (**FP**)</li><li>aka. **Type I error**</li></ul> | <ul><li>True Negative (**TN**)</li></ul> |
+<table>
+    <tr>
+        <td>
+            <ul><li>True positive (**TP**)</li></ul> 
+        </td>
+        <td>
+            <ul><li>False Negative (**FN**)</li><li>aka. **Type II error**</li></ul>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <ul><li>False positive (**FP**)</li><li>aka. **Type I error**</li></ul>
+        </td>
+        <td>
+            <ul><li>True Negative (**TN**)</li></ul>
+        </td>
+    </tr>
+</table>
 
 $$
-Accuracy = \fraq{
+Accuracy = \frac{
     TP + TN
 }{
     TP + TN + FP + FN
@@ -50,7 +66,7 @@ $$
 
 ## The algorithms
 
-We have a time limit for today's session, so we are going to limit ourselves to a pair of algorighms.
+We have a time limit for today's session, so we are going to limit ourselves to a pair of algorithms.
 
 
 # Action plan
