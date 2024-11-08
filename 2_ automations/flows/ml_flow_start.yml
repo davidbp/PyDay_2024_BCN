@@ -1,0 +1,51 @@
+id: pydata_bcn_2024
+namespace: pydata_bcn
+
+tasks:
+  - id: download_dataset
+    type: io.kestra.plugin.scripts.python.Commands
+    description: we use the python Kaggle's api to download dataset
+    commands:
+      - mkdir ~/.kaggle/
+      - echo '{"username":"<USERNAME>","key":"<USE_ENV_VARIABLES_OR_SECRETS_FOR_SAVE_THAT>"}' > ~/.kaggle/kaggle.json
+      - pip install kaggle
+      - kaggle competitions download -c digit-recognizer
+      - mv digit-recognizer.zip digit_recognizer.zip 
+    outputFiles:
+      - digit_recognizer.zip
+
+  - id: uncompress_dataset
+    type: io.kestra.plugin.compress.ArchiveDecompress  
+    algorithm: ZIP
+    from: "{{outputs.download_dataset.outputFiles['digit_recognizer.zip']}}"
+    retry:
+      type: constant
+      interval: PT2S
+      maxAttempt: 5
+      maxDuration: PT1M
+      warningOnRetry: false
+
+    # Due to time constrains we do not continue with this... (today)
+
+# two examples of triggers using scheduling
+# * * * * * <command to execute>
+# | | | | |
+# | | | | day of the week (0–6) (Sunday to Saturday; 
+# | | | month (1–12)             7 is also Sunday on some systems)
+# | | day of the month (1–31)
+# | hour (0–23)
+# minute (0–59)
+triggers:
+  - id: daily
+    type: io.kestra.plugin.core.trigger.Schedule
+    disabled: false
+    cron: 0 9 * * *
+  - id: schedule
+    type: io.kestra.plugin.core.trigger.Schedule
+    cron: "0 11 * * 1"
+    conditions:
+      - type: io.kestra.plugin.core.condition.DayWeekInMonthCondition
+        date: "{{ trigger.date }}"
+        dayOfWeek: "MONDAY"
+        dayInMonth: "FIRST"
+
