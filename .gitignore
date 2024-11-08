@@ -1,2 +1,11 @@
+# Mac's file system
 .DS_Store
+
+# Ide's files
+.idea
+
+# Python's virtual environment
 .venv
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
