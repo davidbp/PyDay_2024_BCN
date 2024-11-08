@@ -14,3 +14,6 @@
 **/mlartifacts/
 **/mlruns/
 
+# Ignore raw and processed dataset's files
+1_solving_the_problem/data/
+
