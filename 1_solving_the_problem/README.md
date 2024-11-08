@@ -40,18 +40,18 @@ From the different metrics that we can use, we are going to use the **accuracy**
 <table>
     <tr>
         <td>
-            <ul><li>True positive (**TP**)</li></ul> 
+            <ul><li>True positive (<b>TP</b>)</li></ul> 
         </td>
         <td>
-            <ul><li>False Negative (**FN**)</li><li>aka. **Type II error**</li></ul>
+            <ul><li>False Negative (<b>FN</b>)</li><li>aka. <b>Type II error</b></li></ul>
         </td>
     </tr>
     <tr>
         <td>
-            <ul><li>False positive (**FP**)</li><li>aka. **Type I error**</li></ul>
+            <ul><li>False positive (<b>FP</b>)</li><li>aka. <b>Type I error</b></li></ul>
         </td>
         <td>
-            <ul><li>True Negative (**TN**)</li></ul>
+            <ul><li>True Negative (<b>TN</b>)</li></ul>
         </td>
     </tr>
 </table>
@@ -72,7 +72,9 @@ We have a time limit for today's session, so we are going to limit ourselves to 
 # Action plan
 
 1. Get the dataset
-2. Understand it and prepare it
+   * Use the Kaggle API or download it directly
+   
+2. Understand the dataset and prepare it for the next steps
     1. Study if is a balance problem or not 
     2. Study of missing values and outliers and their treatment (not today)
     3. Feature engineering (standarization, creation of new variables, ...)
