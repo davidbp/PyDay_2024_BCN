@@ -27,6 +27,12 @@ docker run --pull=always \
 3. See a few examples.
 4. Start writting the flow for solving our problem.
 
+## What about Python?
+
+We have basically two **types of tasks** to execute Python code:
+1. To execute scripts directly written in the flow: ```io.kestra.core.tasks.scripts.Python```
+2. To execute a script already loaded: ```io.kestra.core.tasks.scripts.Python```
+
 ***
 
 # References
